@@ -1,0 +1,33 @@
+<?php
+    include_once('view/main.php');
+?>
+<body>
+    <div class="flex h-screen max-w-screen bg-primary font-poppins">
+        <div class="m-auto">
+            <div class="flex gap-10">
+                <div class="flex items-center px-4">
+                    <img src="public/img/1.png" alt="" class="w-[500px]">
+                </div>
+                <div class="flex flex-col justify-center px-4 w-[400px]">
+                    <div class="flex flex-col text-center">
+                        <h1 class="font-bold">Registrasi</h1>
+                        <p>Pilih tipe akun anda</p>
+                    </div>
+                    <div class="mt-4 flex flex-col gap-2 w-full">
+                        <input type="text" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Nama Lengkap">
+                        <input type="email" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Email">
+                        <input type="password" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Password">
+                        <input type="password" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Konfirmasi Password">
+                    </div>
+                    <div class="mt-4 flex flex-col justify-center">
+                        <button type="submit" class="text-center py-1 px-8 bg-[#A7E6CB] border-2 border-black rounded-lg">Register</button>
+                    </div>
+                    <div class="mt-2 flex justify-center">
+                        <p>Sudah punya akun? <span class="font-bold"><a href="">Masuk</a></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

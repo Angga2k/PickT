@@ -4,11 +4,11 @@ include_once 'model/user_model.php';
 
 class AuthController {
     static function login() {
-        view('auth_page/layout', ['url' => 'login']);
+        view('Auth/auth-siswa', ['url' => 'login-siswa']);
     }
 
     static function register() {
-        view('auth_page/layout', ['url' => 'register']);
+        view('Auth/register-siswa', ['url' => 'register-siswa']);
     }
 
     static function saveLogin() {

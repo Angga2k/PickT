@@ -4,8 +4,10 @@ include_once 'controller/main.php';
 include_once 'function/main.php';
 
 # GET
-Router::url('/', 'get', function () { return view('login'); });
+Router::url('/', 'get', function () { return view('welcome'); });
 
+Router::url('register-siswa', 'GET', 'AuthController::register');
+Router::url('login-siswa','GET' , 'AuthController::login');
 
 # POST
 // Router::url('login', 'post', 'AuthController::saveLogin');
