@@ -588,36 +588,16 @@ video {
   width: 3rem;
 }
 
+.w-\[400px\]{
+  width: 400px;
+}
+
 .w-\[500px\]{
   width: 500px;
 }
 
 .w-full{
   width: 100%;
-}
-
-.w-10{
-  width: 2.5rem;
-}
-
-.w-\[600px\]{
-  width: 600px;
-}
-
-.w-\[900px\]{
-  width: 900px;
-}
-
-.w-\[700px\]{
-  width: 700px;
-}
-
-.w-\[800px\]{
-  width: 800px;
-}
-
-.w-\[400px\]{
-  width: 400px;
 }
 
 .flex-col{

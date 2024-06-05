@@ -3,8 +3,16 @@
 include_once 'model/user_model.php';
 
 class AuthController {
-    static function login() {
+    static function LoginSiswa() {
         view('Auth/auth-siswa', ['url' => 'login-siswa']);
+    }
+
+    static function LoginGuru() {
+        view('Auth/auth-guru', ['url' => 'login-guru']);
+    }
+
+    static function LoginAdmin() {
+        view('Auth/auth-admin', ['url' => 'admin']);
     }
 
     static function register() {
@@ -21,10 +29,45 @@ class AuthController {
         if ($user) {
             unset($user['password']);
             $_SESSION['user'] = $user;
-            header('Location: '.BASEURL.'dashboard');
+            header('Location: '.BASEURL.BASEDIR.'dashboard');
         }
         else {
             header('Location: '.BASEURL.'login?failed=true');
+        }
+    }
+
+    static function SaveLoginGuru() {
+        $post = array_map('htmlspecialchars', $_POST);
+
+        $user = User::LoginGuru([
+            'email' => $post['email'],
+            'password' => $post['password']
+        ]);
+        if ($user) {
+            unset($user['password']);
+            $_SESSION['user'] = $user;
+            header('Location: '.BASEURL.BASEDIR.'dashboard');
+        }
+        else {
+            header('Location: '.BASEURL.BASEDIR. 'login-guru?failed=true');
+        }
+    }
+
+    static function SaveLoginAdmin() {
+        $post = array_map('htmlspecialchars', $_POST);
+
+        $user = User::LoginAdmin([
+            'email' => $post['email'], 
+            'password' => $post['password']
+        ]);
+        
+        if ($user) {
+            unset($user['password']);
+            $_SESSION['user'] = $user;
+            header('Location: '.BASEURL.BASEDIR.'dashboard');
+        }
+        else {
+            header('Location: '.BASEURL.BASEDIR. 'admin');
         }
     }
 
