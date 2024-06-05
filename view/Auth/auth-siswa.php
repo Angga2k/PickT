@@ -14,32 +14,69 @@
                         <p>Pilih tipe akun anda</p>
                     </div>
                     <div class="flex gap-2 justify-center mt-4">
-                        <button>
+                        <a href="<?php BASEURL.BASEDIR ?>login-siswa">
                             <div class="flex center items-center bg-[#495E57] px-4 py-1 rounded-lg">
                                 <img src="public/img/school-boy1.png" alt="" class="w-12">
                                 <p class="text-center text-white">Siswa</p>
                             </div>
-                        </button>
-                        <button>
+                        </a>
+                        <a href="<?php BASEURL.BASEDIR ?>login-guru">
                             <div class="flex center items-center bg-[#F4CE14] px-4 py-1 rounded-lg">
                                 <img src="public/img/teacher1.png" alt="" class="w-12">
                                 <p class="text-center text-white">Guru</p>
                             </div>
-                        </button>
+                        </a>
                     </div>
-                    <div class="mt-4 flex flex-col gap-2 w-full">
-                        <input type="email" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Email">
-                        <input type="password" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Password">
-                    </div>
-                    <div class="mt-4 flex flex-col justify-center">
-                        <button type="submit" class="text-center py-1 px-8 bg-[#A7E6CB] border-2 border-black rounded-lg">Login</button>
-                    </div>
+                    <form action="login-siswa" id="loginForm" method="post">
+                        <div class="mt-4 flex flex-col gap-2 w-full">
+                            <input type="email" name="email" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Email">
+                            <input type="password" name="password" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Password">
+                        </div>
+                        <div class="mt-4 flex flex-col justify-center">
+                            <button type="submit" class="text-center py-1 px-8 bg-[#A7E6CB] border-2 border-black rounded-lg">Login</button>
+                        </div>
+                    </form>
                     <div class="mt-2 flex justify-center">
-                        <p>Belum punya akun? <span class="font-bold"><a href="">Daftar Sekarang</a></span></p>
+                        <p>Belum punya akun? <span class="font-bold"><a href="<?php BASEURL.BASEDIR ?>register-siswa">Daftar Sekarang</a></span></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script>
+    $(document).ready(function(){
+        $('#loginForm').on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                url: 'login-siswa',
+                type : 'POST',
+                data: $(this).serialize(),
+                dataType:'json',
+                success: function(response){
+                    if(response.status === 'failed'){
+                        Swal.fire({
+                            icon : 'error',
+                            title : 'Login Gagal!',
+                            timer : 2000,
+                            text : 'Terjadi kesalahan saat melakukan login akun. Harap cek kembali email dan password anda'
+                        });
+                    }
+                    else{
+                        Swal.fire({
+                                icon: 'success',
+                                title: 'Login Berhasil!',
+                                timer: 2000,
+                                text: 'Redirect.....',
+                                button : false,
+                            }).then(function() {
+                                window.location.href = '<?php echo BASEURL.BASEDIR; ?>dashboard';
+                            });
+                    }
+                }
+            })
+        })
+    })
+</script>
 </html>

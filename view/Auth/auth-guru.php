@@ -14,18 +14,18 @@
                         <p>Pilih tipe akun anda</p>
                     </div>
                     <div class="flex gap-2 justify-center mt-4">
-                        <button>
+                        <a href="<?php BASEURL.BASEDIR ?>login-siswa">
                             <div class="flex center items-center bg-[#495E57] px-4 py-1 rounded-lg">
                                 <img src="public/img/school-boy1.png" alt="" class="w-12">
                                 <p class="text-center text-white">Siswa</p>
                             </div>
-                        </button>
-                        <button>
+                        </a>
+                        <a href="<?php BASEURL.BASEDIR ?>login-guru">
                             <div class="flex center items-center bg-[#F4CE14] px-4 py-1 rounded-lg">
                                 <img src="public/img/teacher1.png" alt="" class="w-12">
                                 <p class="text-center text-white">Guru</p>
                             </div>
-                        </button>
+                        </a>
                     </div>
                     <form action="login-guru" method="post">
                         <div class="mt-4 flex flex-col gap-2 w-full">
@@ -37,7 +37,7 @@
                         </div>
                     </form>
                     <div class="mt-2 flex justify-center">
-                        <p>Belum punya akun? <span class="font-bold"><a href="">Daftar Sekarang</a></span></p>
+                        <p>Belum punya akun? <span class="font-bold"><a href="<?php BASEURL.BASEDIR ?>register-guru">Daftar Sekarang</a></span></p>
                     </div>
                 </div>
             </div>

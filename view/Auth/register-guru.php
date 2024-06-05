@@ -13,7 +13,7 @@
                         <h1 class="font-bold">Registrasi</h1>
                         <p>Pilih tipe akun anda</p>
                     </div>
-                    <form id="registerForm" action="register-siswa" method="post">
+                    <form id="registerForm" action="register-guru" method="post">
                         <div class="mt-4 flex flex-col gap-2 w-full">
                             <input type="text" name="full_name" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Nama Lengkap">
                             <input type="email" name='email' class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Email">
@@ -38,7 +38,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: 'register-siswa', // The controller action
+                    url: 'register-guru', // The controller action
                     type: 'POST',
                     data: $(this).serialize(),
                     dataType: 'json',
@@ -64,10 +64,8 @@
                                 title: 'Registrasi Berhasil!',
                                 timer: 2000,
                                 text: 'Akun Anda telah berhasil didaftarkan.',
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = '<?php echo BASEURL.BASEDIR; ?>login-siswa';
-                                }
+                            }).then(function() => {
+                                window.location.href = '<?php echo BASEURL.BASEDIR; ?>login-guru';
                             });
                         }
                     }

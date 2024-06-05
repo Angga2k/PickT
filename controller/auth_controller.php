@@ -15,25 +15,12 @@ class AuthController {
         view('Auth/auth-admin', ['url' => 'admin']);
     }
 
-    static function register() {
+    static function RegisterSiswa() {
         view('Auth/register-siswa', ['url' => 'register-siswa']);
     }
 
-    static function saveLogin() {
-        $post = array_map('htmlspecialchars', $_POST);
-
-        $user = User::login([
-            'email' => $post['email'], 
-            'password' => $post['password']
-        ]);
-        if ($user) {
-            unset($user['password']);
-            $_SESSION['user'] = $user;
-            header('Location: '.BASEURL.BASEDIR.'dashboard');
-        }
-        else {
-            header('Location: '.BASEURL.'login?failed=true');
-        }
+    static function RegisterGuru() {
+        view('Auth/register-guru', ['url' => 'register-guru']);
     }
 
     static function SaveLoginGuru() {
@@ -50,6 +37,23 @@ class AuthController {
         }
         else {
             header('Location: '.BASEURL.BASEDIR. 'login-guru?failed=true');
+        }
+    }
+
+    static function SaveLoginSiswa() {
+        $post = array_map('htmlspecialchars', $_POST);
+
+        $user = User::LoginSiswa([
+            'email' => $post['email'],
+            'password' => $post['password']
+        ]);
+        if ($user) {
+            unset($user['password']);
+            $_SESSION['user'] = $user;
+            echo json_encode(['status' => 'success']);
+        }
+        else {
+            echo json_encode(['status' => 'failed']);
         }
     }
 
@@ -71,22 +75,49 @@ class AuthController {
         }
     }
 
-    static function saveRegister() {
+    static function SaveRegisterSiswa() {
         $post = array_map('htmlspecialchars', $_POST);
-
-        $user = User::register([
-            'name' => $post['name'], 
+    
+        if ($post['password'] !== $post['confirm_password']) {
+            echo json_encode(['status' => 'password_mismatch']);
+            exit;
+        }
+    
+        $user = User::RegisterSiswa([
+            'full_name' => $post['full_name'], 
             'email' => $post['email'], 
             'password' => $post['password']
         ]);
-
+    
         if ($user) {
-            header('Location: '.BASEURL.'login');
+            echo json_encode(['status' => 'success']);
+        } else {
+            echo json_encode(['status' => 'failed']);
         }
-        else {
-            header('Location: '.BASEURL.'register?failed=true');
-        }
+        exit;
     }
+
+    static function SaveRegisterGuru() {
+        $post   = array_map('htmlspecialchars', $_POST);
+    
+        if ($post['password'] !== $post['confirm_password']) {
+            echo json_encode(['status' => 'password_mismatch']);
+            exit;
+        }
+    
+        $user   = User::RegisterGuru([
+            'full_name' => $post['full_name'], 
+            'email' => $post['email'], 
+            'password' => $post['password']
+        ]);
+    
+        if ($user) {
+            echo json_encode(['status' => 'success']);
+        } else {
+            echo json_encode(['status' => 'failed']);
+        }
+        exit;
+    }    
 
     static function logout() {
         $_SESSION = array();
@@ -98,7 +129,6 @@ class AuthController {
                 $params["secure"], $params["httponly"]
             );
         }
-
         session_destroy();
         header('Location: '.BASEURL);
     }

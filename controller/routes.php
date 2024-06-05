@@ -10,13 +10,18 @@ Router::url('admin', 'GET', 'AuthController::LoginAdmin');
 Router::url('login-siswa', 'GET' , 'AuthController::LoginSiswa');
 Router::url('login-guru', 'GET', 'AuthController::LoginGuru');
 
-Router::url('register-siswa', 'GET', 'AuthController::register');
+Router::url('register-siswa', 'GET', 'AuthController::RegisterSiswa');
+Router::url('register-guru', 'GET', 'AuthController::RegisterGuru');
 Router::url('dashboard' , 'GET', 'DashboardController::index');
 
 # POST
 // Router::url('login', 'post', 'AuthController::saveLogin');
 Router::url('admin', 'POST', 'AuthController::SaveLoginAdmin');
 Router::url('login-guru', 'POST', 'AuthController::SaveLoginGuru');
+Router::url('login-siswa', 'POST', 'AuthController::SaveLoginSiswa');
+
+Router::url('register-siswa', 'POST', 'AuthController::SaveRegisterSiswa');
+Router::url('register-guru', 'POST', 'AuthController::SaveRegisterGuru');
 // Router::url('register', 'post', 'AuthController::saveRegister');
 // Router::url('contacts/add', 'post', 'ContactController::saveAdd');
 // Router::url('contacts/edit', 'post', 'ContactController::saveEdit');

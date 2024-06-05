@@ -6,11 +6,14 @@
   "scripts": {
     "build": "tailwindcss -i ./styles.css -o ./output.css",
     "dev": "tailwindcss -i ./styles.css -o ./output.css --watch"
-  },  
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.11.1"
   }
 }
