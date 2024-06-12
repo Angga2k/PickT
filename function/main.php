@@ -35,5 +35,5 @@ class Router {
 
 function urlpath($path) {
     require_once 'config/static.php';
-    return BASEURL.$path;
+    return BASEURL.BASEDIR.$path;
 }
