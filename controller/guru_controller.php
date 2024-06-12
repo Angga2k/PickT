@@ -10,7 +10,7 @@ class GuruController {
     }
 
     static function add_kursus(){
-        view('Guru/add-kursus', ['url' => 'tambah-kursus']);
+        view('Guru/add-kursus', ['url' => 'list-kursus/tambah-kursus']);
     }
 
     static function add_materi() {
@@ -42,7 +42,7 @@ class GuruController {
     static function get_course_by_id_edit() {
         $course_id = $_GET['id'];
         $courses = Guru::GetAllCoursesByID($course_id);
-        view('Guru/edit-kursus', ['courses' => $courses]);
+        view('Guru/edit-lessons', ['courses' => $courses]);
     }
 
     static function get_course_by_id_details() {
@@ -69,6 +69,13 @@ class GuruController {
         };
     }
 
+    static function get_lessons_by_id_edit() {
+        $course_id = $_GET['id'];
+        $lesson_id = $_GET['lesson_id'];
+        $lessons = Guru::GetAllLessonsByID($course_id, $lesson_id);
+        view('Guru/edit-lessons', ['lessons' => $lessons]);
+    }
+
     static function save_edit_kursus($data = []) {
         $post = array_map('htmlspecialchars', $_POST);
         $course_id = $_GET['id'];
@@ -85,6 +92,47 @@ class GuruController {
             echo json_encode(['status' => 'failed']);
         }
     }
-}
 
-?>
+    static function save_edit_materi() {
+        $post = array_map('htmlspecialchars', $_POST);
+        $course_id = $_GET['id'];
+        $lesson_id = $_GET['lesson_id'];
+        $result = Guru::SaveEditMateri([
+            'course_id' => $course_id,
+            'title' => $post['title'],
+            'content' => $post['content'],
+            'video_url' => $post['video_url'],
+            'lesson_id' => $lesson_id
+        ]);
+
+        if ($result) {
+            echo json_encode(['status' => 'success']);
+        }
+        else {
+            echo json_encode(['status' => 'failed']);
+        }
+    }
+
+    static function save_delete_kursus() {
+        $course_id = $_GET['id'];
+        $result = Guru::SaveDeleteKursus($course_id);
+        if ($result) {
+            echo json_encode(['status' => 'success']);
+        }
+        else {
+            echo json_encode(['status' => 'failed']);
+        }
+    }
+
+    static function save_delete_lessons() {
+        $course_id = $_GET['id'];
+        $lesson_id = $_GET['lesson_id'];
+        $result = Guru::SaveDeleteMateri($course_id, $lesson_id);
+        if ($result) {
+            echo json_encode(['status' => 'success']);
+        }
+        else {
+            echo json_encode(['status' => 'failed']);
+        }
+    }
+}

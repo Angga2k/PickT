@@ -4,14 +4,14 @@ include_once 'view/main.php';
 ?>
 
 <body class="bg-primary flex flex-row">
-    <?php include_once 'view/Component/sidebar.php'; ?>
+    <?php include_once 'view/Component/sidebar-guru.php'; ?>
     <div class="flex flex-col my-10 w-full">
         <div class="flex flex-col gap-2 py-5 mb-10">
             <h1 class="font-bold text-3xl">Kursus, mu</h1>
             <p class="font-normal text-sm">Yuuk, isi kursusmu diform ini</p>
         </div>
         <div class="mr-10">
-            <form action="tambah-kursus" method="POST">
+            <form action="<?= urlpath('list-kursus/tambah-kursus')?>" method="POST">
                 <div class=" flex max-w-6xl w-screen gap-2">
                     <div class="grid grid-cols-1 w-full gap-4">
                         <div class="flex flex-col gap-2">
@@ -30,14 +30,5 @@ include_once 'view/main.php';
             </form>
         </div>
     </div>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#test').select2({
-                placeholder: 'Plih',
-                allowClear: true,
-            });
-        });
-    </script>
 </body>
 </html>

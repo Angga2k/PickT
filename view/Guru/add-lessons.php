@@ -3,14 +3,14 @@ include_once 'view/main.php';
 ?>
 
 <body class="bg-primary flex flex-row">
-    <?php include_once 'view/Component/sidebar.php'; ?>
+    <?php include_once 'view/Component/sidebar-guru.php'; ?>
     <div class="flex flex-col my-10 w-full">
         <div class="flex flex-col gap-2 py-5 mb-10">
             <h1 class="font-bold text-3xl">Materi, mu</h1>
             <p class="font-normal text-sm">Yuuk, isi materimu diform ini sesuai dengan kursusnya</p>
         </div>
         <div class="mr-10 flex flex-col gap-8">
-            <form action="tambah-materi" method="POST">
+            <form action="<?= urlpath('list-kursus/tambah-materi') ?>" method="POST">
                 <div class=" flex max-w-7xl w-screen gap-2">
                     <div class="grid grid-cols-2 w-full gap-6">
                         <div class="flex flex-col gap-2">

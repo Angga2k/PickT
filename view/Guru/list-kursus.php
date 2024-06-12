@@ -13,10 +13,10 @@ include_once('view/main.php');
         <div class="mb-4 flex flex-col gap-2">
             <h1 class="w-fit font-bold rounded-lg">Jadwal Lesmu</h1>
             <div class="flex gap-2">
-                <a href="<?php BASEURL.BASEDIR ?>tambah-kursus">
+                <a href="<?= urlpath('list-kursus/tambah-kursus') ?>">
                     <h1 class="w-fit border font-bold rounded-lg bg-[#7ad1d7] py-2 px-6">Buat Kursus Baru</h1>
                 </a>
-                <a href="<?php BASEURL.BASEDIR ?>tambah-materi">
+                <a href="<?= urlpath('list-kursus/tambah-materi') ?>">
                     <h1 class="w-fit border font-bold rounded-lg bg-[#7ad1d7] py-2 px-6">Buat Materi Baru</h1>
                 </a>
             </div>
@@ -46,7 +46,9 @@ include_once('view/main.php');
                                 <a href="<?= urlpath('list-kursus/edit-kursus?id=' . $course['course_id']); ?>">
                                     <button type="button" class="focus:outline-none text-black bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Ganti</button>
                                 </a>
-                                <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Hapus</button>
+                                <a href="<?= urlpath('list-kursus/delete-kursus?id=' . $course['course_id']);?>">
+                                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Hapus</button>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

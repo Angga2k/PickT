@@ -60,6 +60,35 @@ class Guru{
         return $rows;
     }
 
+    static function GetAllLessonsByID($course_id='' ,$lesson_id='') {
+        global $conn;
+        $sql = "SELECT * FROM lessons";
+
+        if ($course_id != '' || $lesson_id != '') {
+            $sql .= " WHERE";
+            if ($course_id != '') {
+                $sql .= " course_id = $course_id";
+                if ($lesson_id != '') {
+                    $sql .= " AND";
+                }
+            }
+            if ($lesson_id != '') {
+                $sql .= " lesson_id = $lesson_id";
+            }
+        }
+
+        $result = $conn->query($sql);
+        $rows = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $rows[] = $row;
+            }
+        }
+        $result->free();
+        $conn->close();
+        return $rows;
+    }
+
     static function GetAllLessonsByCourse($course_id='', $teacher_id='') {
         global $conn;
         $sql = "SELECT courses.title AS course_title, lessons.* FROM courses LEFT JOIN lessons ON courses.course_id = lessons.course_id";
@@ -129,6 +158,71 @@ class Guru{
         return $result;
     }
 
-}
+    static function SaveEditMateri($data = []) {
+        extract($data);
+        global $conn;
 
-?>
+        $update_at = date('Y-m-d H:i:s');
+
+        $sql = "UPDATE lessons SET title = ?, content = ?, video_url = ?, update_at = ? WHERE course_id = ? AND lesson_id = ?";
+
+        $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            die('Prepare failed: ' . htmlspecialchars($conn->error));
+        }
+
+        $stmt->bind_param('ssssii', $title, $content, $video_url, $update_at, $course_id, $lesson_id);
+        $stmt->execute();
+        $result = $stmt->affected_rows > 0 ? true : false;
+        $stmt->close();
+        return $result;
+    }
+
+    static function SaveDeleteKursus($course_id='') {
+        global $conn;
+
+        $sql2 = "DELETE FROM lessons WHERE course_id = ?";
+
+        $stmt2 = $conn->prepare($sql2);
+        if ($stmt2 === false) {
+            die('Prepare failed: ' . htmlspecialchars($conn->error));
+        }
+
+        $stmt2->bind_param('i', $course_id);
+        $stmt2->execute();
+        $result = $stmt2->affected_rows > 0 ? true : false;
+        $stmt2->close();
+
+        $sql = "DELETE FROM courses WHERE course_id = ?";
+
+        $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            die('Prepare failed: ' . htmlspecialchars($conn->error));
+        }
+
+        $stmt->bind_param('i', $course_id);
+        $stmt->execute();
+        $result = $stmt->affected_rows > 0 ? true : false;
+        $stmt->close();
+
+        return $result;
+    }
+
+    static function SaveDeleteMateri($course_id='', $lesson_id='') {
+        global $conn;
+
+        $sql = "DELETE FROM lessons WHERE course_id = ? AND lesson_id = ?";
+
+        $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            die('Prepare failed: ' . htmlspecialchars($conn->error));
+        }
+
+        $stmt->bind_param('ii', $course_id, $lesson_id);
+        $stmt->execute();
+        $result = $stmt->affected_rows > 0 ? true : false;
+        $stmt->close();
+
+        return $result;
+    }
+}
