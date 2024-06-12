@@ -14,6 +14,10 @@ Router::url('register-siswa', 'GET', 'AuthController::RegisterSiswa');
 Router::url('register-guru', 'GET', 'AuthController::RegisterGuru');
 Router::url('dashboard' , 'GET', 'DashboardController::index');
 
+Router::url('jadwal-les-siswa', 'GET', 'SiswaController::index');
+Router::url('pemesanan-les-siswa', 'GET', 'SiswaController::order_les_index');
+Router::url('add-pemesanan-les', 'GET', 'SiswaController::add_order_les_index');
+
 # POST
 // Router::url('login', 'post', 'AuthController::saveLogin');
 Router::url('admin', 'POST', 'AuthController::SaveLoginAdmin');

@@ -38,13 +38,12 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: 'register-siswa', // The controller action
+                    url: 'register-siswa',
                     type: 'POST',
                     data: $(this).serialize(),
                     dataType: 'json',
                     success: function(response) {
                         if (response.status === 'password_mismatch') {
-                            console.log(response.status);
                             Swal.fire({
                                 icon: 'warning',
                                 title: 'Password Tidak Cocok!',
@@ -64,10 +63,8 @@
                                 title: 'Registrasi Berhasil!',
                                 timer: 2000,
                                 text: 'Akun Anda telah berhasil didaftarkan.',
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = '<?php echo BASEURL.BASEDIR; ?>login-siswa';
-                                }
+                            }).then(function() => {
+                                window.location.href = '<?php echo BASEURL.BASEDIR; ?>login-siswa';
                             });
                         }
                     }

@@ -38,7 +38,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: 'register-guru', // The controller action
+                    url: 'register-guru',
                     type: 'POST',
                     data: $(this).serialize(),
                     dataType: 'json',
