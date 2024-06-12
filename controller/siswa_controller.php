@@ -3,6 +3,11 @@
 include_once 'model/siswa_model.php';
 
 class SiswaController{
+    // static function index(){
+    //     $course_id = $_SESSION['user']['user_id'];
+    //     $courses = Siswa::GetAllCourses($course_id);
+    //     view('Siswa/jadwal-les', ['courses' => $courses]);
+    // }
     static function index(){
         view('Siswa/jadwal-les', ['url' => 'jadwal-les-siswa']);
     }
@@ -13,6 +18,15 @@ class SiswaController{
 
     static function add_order_les_index(){
         view('Siswa/add-pemesanan-les', ['url' => 'add-pemesanan-les']);
+    }
+
+    // static function add_lesson() {
+    //     view('Siswa/add-pemesanan-les', ['url' => 'add-pemesanan-les']);
+    // }
+
+    static function get_course_id() {
+        $courses = Siswa::GetAllCourses();
+        view('Siswa/add-pemesanan-les', ['courses' => $courses]);
     }
 }
 

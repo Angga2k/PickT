@@ -1,7 +1,5 @@
 <?php
 
-class Dashboard{
-      
-}
+include_once 'config/conn.php';
 
 ?>

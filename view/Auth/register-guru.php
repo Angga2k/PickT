@@ -25,7 +25,7 @@
                         </div>
                     </form>
                     <div class="mt-2 flex justify-center">
-                        <p>Sudah punya akun? <span class="font-bold"><a href="<?php BASEURL.BASEDIR ?>login-siswa"">Masuk</a></span></p>
+                        <p>Sudah punya akun? <span class="font-bold"><a href="<?php BASEURL.BASEDIR ?>login-siswa">Masuk</a></span></p>
                     </div>
                 </div>
             </div>

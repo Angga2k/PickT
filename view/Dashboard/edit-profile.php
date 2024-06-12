@@ -1,8 +1,7 @@
-<?php
-    include_once('view/main.php');
-?>
-<body>
-    <div class="flex h-screen max-w-screen bg-[#F6F7D7] font-poppins">
+<?php include_once('view/main.php');?>
+<body class="bg-primary flex flex-row">
+    <?php include_once 'view/Component/sidebar-guru.php'; ?>
+    <!-- <div class="flex h-screen max-w-screen bg-[#F6F7D7] font-poppins">
         <div class="w-[276px] h-screen bg-[#45474B]">
             <div class="flex gap-10">
                 <div class="mt-[56px] ml-[75px] w-[114px] h-[114px] bg-[#D9D9D9] rounded-full"></div>
@@ -12,7 +11,7 @@
                 <button class=" mt-4 ml-[75px] text-base text-white hover:font-bold active:font-bold focus:font-bold" >Jadwal</button>
                 <button class=" mt-4 ml-[75px] text-base text-white hover:font-bold active:font-bold focus:font-bold" >Loker Mengajar</button>
             </div>
-        </div>
+        </div> -->
         <div class="flex-col">
             <!-- <div class=" mt-14 ml-3 w-[936px] h-[69px] bg-[#F6F7D7] border-2 border-black rounded-[20px]">
                 <h1 class=" mt-5 ml-3 text-xl">Dashboard</h1>

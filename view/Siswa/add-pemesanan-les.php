@@ -2,7 +2,7 @@
 <?php include_once 'view/main.php';?>
 
 <body class="bg-primary flex flex-row">
-    <?php include_once 'view/Component/sidebar.php'; ?>
+    <?php include_once 'view/Component/sidebar-siswa.php'; ?>
     <div class="flex flex-col my-10 w-full">
         <div class="flex flex-col gap-2 py-5 mb-10">
             <h1 class="font-bold text-3xl">Pemesanan Les</h1>
@@ -14,7 +14,9 @@
                     Pilih Judul
                     <select class="border block w-full" id="test">
                         <option value=""></option>
-                        <option value="1">aku unej</option>
+                        <?php foreach ($courses as $course) { ?>
+                                    <option value="<?= $course['course_id'] ?>"><?= $course['title'] ?></option>
+                        <?php } ?>
                     </select>
                 </label>
             </div>

@@ -4,8 +4,8 @@ include_once 'model/guru_model.php';
 
 class GuruController{
     static function index(){
-        $teacher_id = $_SESSION['user']['user_id'];
-        $courses = Guru::GetAllCourses($teacher_id);
+        // $teacher_id = $_SESSION['user']['user_id'];
+        $courses = Guru::GetAllCourses();
         view('Guru/list-kursus', ['courses' => $courses]);
     }
 
