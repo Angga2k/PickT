@@ -26,6 +26,10 @@ Router::url('tambah-kursus', 'GET', 'GuruController::add_kursus');
 Router::url('tambah-materi', 'GET', 'GuruController::add_materi');
 Router::url('tambah-materi', 'GET', 'GuruController::get_course_by_id');
 
+Router::url('list-kursus/detail-kursus', 'GET', 'GuruController::get_course_by_id_details');
+Router::url('list-kursus/edit-kursus', 'GET', 'GuruController::get_course_by_id_edit');
+
+
 Router::url('logout', 'GET', 'AuthController::logout');
 
 # POST
@@ -36,13 +40,10 @@ Router::url('login-siswa', 'POST', 'AuthController::SaveLoginSiswa');
 
 Router::url('register-siswa', 'POST', 'AuthController::SaveRegisterSiswa');
 Router::url('register-guru', 'POST', 'AuthController::SaveRegisterGuru');
+
 Router::url('tambah-kursus', 'POST', 'GuruController::save_add_kursus');
-// Router::url('register', 'post', 'AuthController::saveRegister');
-// Router::url('contacts/add', 'post', 'ContactController::saveAdd');
-// Router::url('contacts/edit', 'post', 'ContactController::saveEdit');
+Router::url('list-kursus/edit-kursus', 'POST', 'GuruController::save_edit_kursus');
 
-
-# API GET
-// Router::url('outside', 'get', 'ContactController::api');
+Router::url('tambah-materi', 'POST', 'GuruController::save_add_materi');
 
 new Router();
