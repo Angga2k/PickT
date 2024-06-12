@@ -130,7 +130,7 @@ class AuthController {
             );
         }
         session_destroy();
-        header('Location: '.BASEURL);
+        header('Location: '.BASEURL.BASEDIR);
     }
 
     static function forgotPassword() {}

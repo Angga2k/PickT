@@ -55,7 +55,7 @@
                 data: $(this).serialize(),
                 dataType:'json',
                 success: function(response){
-                    if(response.status === 'failed'){
+                    if (response.status === 'failed'){
                         Swal.fire({
                             icon : 'error',
                             title : 'Login Gagal!',
@@ -63,7 +63,7 @@
                             text : 'Terjadi kesalahan saat melakukan login akun. Harap cek kembali email dan password anda'
                         });
                     }
-                    else{
+                    else {
                         Swal.fire({
                                 icon: 'success',
                                 title: 'Login Berhasil!',
