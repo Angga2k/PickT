@@ -13,6 +13,20 @@
                         <h1 class="font-bold">Registrasi</h1>
                         <p>Pilih tipe akun anda</p>
                     </div>
+                    <div class="flex gap-2 justify-center mt-4">
+                        <a href="<?php BASEURL.BASEDIR ?>register-siswa">
+                            <div class="flex center items-center bg-[#495E57] hover:bg-[#6DA491] active:bg-[#6DA491] focus:bg-[#6DA491] px-4 py-1 rounded-lg">
+                                <img src="public/img/school-boy1.png" alt="" class="w-12">
+                                <p class="text-center text-white">Siswa</p>
+                            </div>
+                        </a>
+                        <a href="<?php BASEURL.BASEDIR ?>register-guru">
+                            <div class="flex center items-center bg-[#F4CE14] hover:bg-[#FFE66C] active:bg-[#FFE66C] focus:bg-[#FFE66C] px-4 py-1 rounded-lg">
+                                <img src="public/img/teacher1.png" alt="" class="w-12">
+                                <p class="text-center text-white">Guru</p>
+                            </div>
+                        </a>
+                    </div>
                     <form id="registerForm" action="register-siswa" method="post">
                         <div class="mt-4 flex flex-col gap-2 w-full">
                             <input type="text" name="full_name" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Nama Lengkap">

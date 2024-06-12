@@ -14,14 +14,14 @@
                         <p>Pilih tipe akun anda</p>
                     </div>
                     <div class="flex gap-2 justify-center mt-4">
-                        <a href="<?php BASEURL.BASEDIR ?>login-siswa">
-                            <div class="flex center items-center bg-[#495E57] px-4 py-1 rounded-lg">
+                    <a href="<?php BASEURL.BASEDIR ?>login-siswa">
+                            <div class="flex center items-center bg-[#495E57] hover:bg-[#6DA491] active:bg-[#6DA491] focus:bg-[#6DA491] px-4 py-1 rounded-lg">
                                 <img src="public/img/school-boy1.png" alt="" class="w-12">
                                 <p class="text-center text-white">Siswa</p>
                             </div>
                         </a>
                         <a href="<?php BASEURL.BASEDIR ?>login-guru">
-                            <div class="flex center items-center bg-[#F4CE14] px-4 py-1 rounded-lg">
+                            <div class="flex center items-center bg-[#F4CE14] hover:bg-[#FFE66C] active:bg-[#FFE66C] focus:bg-[#FFE66C] px-4 py-1 rounded-lg">
                                 <img src="public/img/teacher1.png" alt="" class="w-12">
                                 <p class="text-center text-white">Guru</p>
                             </div>
