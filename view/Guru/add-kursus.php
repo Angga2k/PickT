@@ -16,11 +16,11 @@ include_once 'view/main.php';
                     <div class="grid grid-cols-1 w-full gap-4">
                         <div class="flex flex-col gap-2">
                             <label for="title" class="font-semibold">Judul Kursusmu</label>
-                            <input type="text" name="title" id="title" class="border-2 border-black bg-transparent rounded-lg px-4 py-2" placeholder="Example : ReactJS - Frontend Developer">
+                            <input type="text" name="title" id="title" class=" w-[1042px] border-2 border-black bg-transparent rounded-lg px-4 py-2" placeholder="Example : ReactJS - Frontend Developer">
                         </div>
                         <div class="flex flex-col gap-2">
                             <label for="description" class="font-semibold">Deskripsi Kursusmu</label>
-                            <input type="text" name="description" id="description" placeholder="Example : Belajar tentang materi dasar dari ReactJS" class="border-2 border-black bg-transparent rounded-lg px-4 py-2">
+                            <input type="text" name="description" id="description" placeholder="Example : Belajar tentang materi dasar dari ReactJS" class=" w-[1042px] border-2 border-black bg-transparent rounded-lg px-4 py-2">
                         </div>
                         <div>
                             <button type="submit" class="bg-blue-600 px-8 py-2 font-semibold text-primary rounded-xl hover:bg-blue-800">Submit</button>

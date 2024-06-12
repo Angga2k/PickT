@@ -4,7 +4,7 @@ include_once 'model/dashboard_model.php';
 
 class DashboardController{
     static function index(){
-        view('Dashboard/index', ['url' => 'dashboard']);
+        view('Dashboard/dashboard-siswa', ['url' => 'dashboard-siswa']);
     }
 
     static function dashboard_guru(){

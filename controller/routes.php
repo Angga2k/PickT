@@ -13,7 +13,7 @@ Router::url('login-guru', 'GET', 'AuthController::LoginGuru');
 Router::url('register-siswa', 'GET', 'AuthController::RegisterSiswa');
 Router::url('register-guru', 'GET', 'AuthController::RegisterGuru');
 
-Router::url('dashboard' , 'GET', 'DashboardController::index');
+Router::url('dashboard-siswa' , 'GET', 'DashboardController::index');
 Router::url('dashboard-guru', 'GET', 'DashboardController::dashboard_guru');
 
 Router::url('jadwal-les-siswa', 'GET', 'SiswaController::index');
@@ -31,6 +31,8 @@ Router::url('list-kursus/detail-kursus/delete-materi', 'GET', 'GuruController::s
 Router::url('list-kursus/detail-kursus', 'GET', 'GuruController::get_course_by_id_details');
 Router::url('list-kursus/edit-kursus', 'GET', 'GuruController::get_course_by_id_edit');
 Router::url('list-kursus/delete-kursus', 'GET', 'GuruController::save_delete_kursus');
+// Router::url('add-pemesanan-les', 'GET', 'SiswaController::add_lesson');
+Router::url('add-pemesanan-les', 'GET', 'SiswaController::get_course_id');
 
 Router::url('logout', 'GET', 'AuthController::logout');
 

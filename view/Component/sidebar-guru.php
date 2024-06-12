@@ -5,7 +5,7 @@ include_once 'view/main.php';
 ?>
 
 <div class="bg-[#45474B] flex h-screen w-max mr-8">
-    <div class="flex flex-col text-primary justify-between items-center px-10">
+<div class="flex flex-col text-primary justify-between items-center px-16">
         <div class="mt-14 flex flex-col gap-3">
             <a href="<?= urlpath('dashboard') ?>">
                 <h1 class="font-medium">Dashboard</h1>
