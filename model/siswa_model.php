@@ -23,7 +23,10 @@ class Siswa{
 
     static function GetCourseById($course_id) {
         global $conn;
-        $sql = "SELECT course_id, title, description FROM courses WHERE course_id = $course_id";
+        $sql = "SELECT courses.course_id, courses.title, courses.description, users.full_name AS teacher 
+                FROM courses 
+                JOIN users ON courses.teacher_id = users.user_id 
+                WHERE courses.course_id = $course_id";
         $result = $conn->query($sql);
         $rows = [];
         if ($result->num_rows > 0) {
@@ -31,9 +34,22 @@ class Siswa{
                 $rows[] = $row;
             }
         }
+        
         $result->free();
         $conn->close();
         return $rows;
+    }
+
+    static function SaveEnrollement($data=[]) {
+        extract($data);
+        global $conn;
+        $sql = "INSERT INTO enrollments (student_id, course_id) VALUES (?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $student_id, $course_id);
+        $stmt->execute();
+        $result = $stmt->affected_rows > 0 ? true : false;
+        $stmt->close();
+        return $result;
     }
 }
 ?>

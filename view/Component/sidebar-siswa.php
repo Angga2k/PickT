@@ -11,11 +11,11 @@ include_once 'view/main.php';
             <a href="<?php BASEURL.BASEDIR ?>dashboard-siswa">
                 <h1 class="font-medium">Dashboard</h1>
             </a>
-            <a href="<?php BASEURL.BASEDIR ?>pemesanan-les-siswa">
+            <a href="<?= urlpath('enrollment') ?>">
                 <h1 class="font-medium">Pemesanan Les</h1>
             </a>
-            <a href="<?php BASEURL.BASEDIR ?>jadwal-les-siswa">
-                <h1 class="font-medium">Jadwal Les</h1>
+            <a href="<?= urlpath('list-enrollment') ?>">
+                <h1 class="font-medium">Kursusmu </h1>
             </a>
         </div>
         <div class="py-10">

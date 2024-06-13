@@ -71,7 +71,7 @@
                                 text: 'Redirect.....',
                                 button : false,
                             }).then(function() {
-                                window.location.href = '<?php echo BASEURL.BASEDIR; ?>dashboard';
+                                window.location.href = '<?= urlpath('dashboard-siswa'); ?>';
                             });
                     }
                 }
