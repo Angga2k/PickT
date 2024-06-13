@@ -49,6 +49,18 @@ class SiswaController{
         return json_encode($response);
     }
 
+    static function get_all_enrollments() {
+        $student_id = $_SESSION['user']['user_id'];
+        $enrollments = Siswa::GetAllEnrollments($student_id);
+        view('Siswa/list-enrollment', ['enrollments' => $enrollments]);
+    }
+
+    static function get_all_enrollment_by_id() {
+        $course_id = $_GET['id'];
+        $enrollments = Siswa::GetAllEnrollmentsByID($course_id);
+        view('Siswa/details-enrollment', ['enrollments' => $enrollments]);
+    }
+
     static function save_enrollement() {
         $post = array_map('htmlspecialchars', $_POST);
         $student_id = $_SESSION['user']['user_id'];

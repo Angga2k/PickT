@@ -42,7 +42,7 @@ class GuruController {
     static function get_course_by_id_edit() {
         $course_id = $_GET['id'];
         $courses = Guru::GetAllCoursesByID($course_id);
-        view('Guru/edit-lessons', ['courses' => $courses]);
+        view('Guru/edit-kursus', ['courses' => $courses]);
     }
 
     static function get_course_by_id_details() {

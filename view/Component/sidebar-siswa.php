@@ -7,7 +7,7 @@ include_once 'view/main.php';
 <div class="bg-[#45474B] flex h-screen w-max mr-8">
     <div class="flex flex-col text-primary justify-between items-center px-16">
         <div class="mt-14 flex flex-col gap-3">
-            <img src="public/img/logo-pickt.png" alt="" class="w-[100px]">
+            <img src="<?= BASEURL.BASEDIR.BASEPUBLIC ?>img/logo-pickt.png" alt="" class="w-[100px]">
             <a href="<?php BASEURL.BASEDIR ?>dashboard-siswa">
                 <h1 class="font-medium">Dashboard</h1>
             </a>

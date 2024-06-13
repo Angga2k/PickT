@@ -33,10 +33,10 @@ class AuthController {
         if ($user) {
             unset($user['password']);
             $_SESSION['user'] = $user;
-            header('Location: '.BASEURL.BASEDIR.'dashboard-guru');
+            echo json_encode(['status' => 'success']);
         }
         else {
-            header('Location: '.BASEURL.BASEDIR. 'login-guru?failed=true');
+            echo json_encode(['status' => 'failed']);
         }
     }
 

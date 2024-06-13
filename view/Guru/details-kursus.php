@@ -31,11 +31,11 @@
                 <tbody>
                     <?php foreach ($courses as $key => $course) : ?>
                         <tr>
-                            <td class="w-16 text-left"><?php echo $key + 1; ?></td>
-                            <td class="text-left"><?= htmlspecialchars($course['title']) ?></td>
-                            <td class="text-left"><?= htmlspecialchars($course['content']) ?></td>
-                            <td class="text-left"><?= htmlspecialchars($course['video_url']) ?></td>
-                            <td class="text-left">
+                            <td class="w-1/2 text-left"><?php echo $key + 1; ?></td>
+                            <td class="text-left w-1/2"><?= htmlspecialchars($course['title']) ?></td>
+                            <td class="text-left w-1/2"><?= htmlspecialchars($course['content']) ?></td>
+                            <td class="text-left w-1/2"><?= htmlspecialchars($course['video_url']) ?></td>
+                            <td class="text-left w-1/2">
                                 <a href="<?= urlpath('list-kursus/detail-kursus?id=' . $course['course_id']); ?>"></a>
                                     <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Detail</button>
                                 </a>

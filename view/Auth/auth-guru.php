@@ -27,7 +27,7 @@
                             </div>
                         </a>
                     </div>
-                    <form action="login-guru" method="post">
+                    <form action="login-guru" method="post" id="loginForm">
                         <div class="mt-4 flex flex-col gap-2 w-full">
                             <input type="email" name="email" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Email">
                             <input type="password" name="password" class="bg-secondary rounded-lg py-1 px-4 border-2 border-black" placeholder="Password">
@@ -44,4 +44,41 @@
         </div>
     </div>
 </body>
+
+<script>
+    $(document).ready(function(){
+        $('#loginForm').on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                url: 'login-guru',
+                type : 'POST',
+                data: $(this).serialize(),
+                dataType:'json',
+                success: function(response){
+                    if (response.status === 'failed'){
+                        Swal.fire({
+                            icon : 'error',
+                            title : 'Login Gagal!',
+                            timer : 2000,
+                            text : 'Terjadi kesalahan saat melakukan login akun. Harap cek kembali email dan password anda'
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                                icon: 'success',
+                                title: 'Login Berhasil!',
+                                timer: 2000,
+                                text: 'Redirect.....',
+                                button : false,
+                            }).then(function() {
+                                window.location.href = '<?= urlpath('dashboard-guru'); ?>';
+                            });
+                    }
+                }
+            })
+        })
+    })
+</script>
+
 </html>
